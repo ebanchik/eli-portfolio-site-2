@@ -2,9 +2,15 @@
 import { Container, Row, Col } from "react-bootstrap"
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import meter1 from "../assets/img/meter1.svg";
-import meter2 from "../assets/img/meter2.svg";
-import meter3 from "../assets/img/meter3.svg";
+import rubyLogo from "../assets/logos/ruby-logo.png";
+import python from "../assets/logos/python-logo.png";
+import js from "../assets/logos/js-logo.png";
+import html from "../assets/logos/html-css-logo.png";
+import react from "../assets/logos/react-logo.png";
+import ts from "../assets/logos/ts-logo.png";
+import rails from "../assets/logos/rails-logo.png";
+import vue from "../assets/logos/vue-logo.png";
+import flask from "../assets/logos/flask-logo.png";
 // import colorSharp from "../assets/img/color-sharp.png"
 
 export const Skills = () => {
@@ -45,21 +51,45 @@ export const Skills = () => {
               responsive={responsive} 
               draggable={true} >
                 <div className="item">
-                  <img src={meter1} alt="Image" />
-                  <h5>Web Development</h5>
+                  <img src={rubyLogo} width="100px" height="100px" alt="Image" />
+                  <h5>Ruby</h5>
                 </div>
                 <div className="item">
-                  <img src={meter2} alt="Image" />
-                  <h5>Software Engineer</h5>
+                  <img src={python} width="100px" height="100px" alt="Image" />
+                  <h5>Python3</h5>
                 </div>
                 <div className="item">
-                  <img src={meter3} alt="Image" />
-                  <h5>Web Designer</h5>
+                  <img src={js} width="100px" height="100px" alt="Image" />
+                  <h5>JavaScript</h5>
                 </div>
                 <div className="item">
+                  <img src={html} width="200px" height="100px" alt="Image" />
+                  <h5>HTML + CSS</h5>
+                </div>
+                <div className="item">
+                  <img src={react} width="100px" height="100px" alt="Image" />
+                  <h5>React</h5>
+                </div>
+                <div className="item">
+                  <img src={ts} width="100px" height="100px" alt="Image" />
+                  <h5>TypeScript</h5>
+                </div>
+                <div className="item">
+                  <img src={rails} width="100px" height="100px" alt="Image" />
+                  <h5>Ruby on Rails</h5>
+                </div>
+                <div className="item">
+                  <img src={vue} width="100px" height="100px" alt="Image" />
+                  <h5>Vue</h5>
+                </div>
+                <div className="item">
+                  <img src={flask} width="100px" height="100px" alt="Image" />
+                  <h5>Flask</h5>
+                </div>
+                {/* <div className="item">
                   <img src={meter1} alt="Image" />
                   <h5>Tall</h5>
-                </div>
+                </div> */}
               </Carousel>
           </div>
           </Col>

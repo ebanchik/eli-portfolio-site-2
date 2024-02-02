@@ -27,6 +27,8 @@ export function NavBar() {
     setActiveLink(value);
   }
 
+
+
   return (
     <Navbar expand="lg" className={scrolled ? "scrolled" : ""}>
       <Container>
@@ -50,7 +52,7 @@ export function NavBar() {
               <a href="https://github.com/ebanchik" rel="noopener noreferrer"><img src={githubLogo} alt="Description for image 2" /></a>
               <a href="https://www.instagram.com/elibanchik/" rel="noopener noreferrer"><img src={instaLogo} alt="Description for image 3" /></a>
             </div>
-            <button className="wvd" onClick={() => console.log("connect")}>
+            <button className="wvd" onClick={() => window.open("https://www.linkedin.com/in/elibanchik/", "_blank")}>
               <span>Lets Connect</span>
             </button>
           </span>

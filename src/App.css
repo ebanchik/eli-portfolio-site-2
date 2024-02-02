@@ -251,8 +251,10 @@ p {
 }
 .banner img {
   animation: updown 3s linear infinite;
-  width: 600px;
+  width: 800px; 
+  height: 500px;
 }
+
 
 @keyframes updown {
     0% {
@@ -320,12 +322,12 @@ p {
 }
 
 .react-multi-carousel-arrow--left {
-  left: -25px; /* Adjust as needed */
+  left: -50px; /* Adjust as needed */
   z-index: 1;
 }
 
 .react-multi-carousel-arrow--right {
-  right: -25px; /* Adjust as needed */
+  right: -50px; /* Adjust as needed */
   z-index: 1;
 }
 
