@@ -6,17 +6,11 @@
 }
 
 @font-face {
-  font-family: Anybody;
-  src: url('./assets/fonts/Anybody-VariableFont.ttf');
+  font-family: 'Anybody';
+  src: url('./assets/fonts/Anybody-Thin.woff2') format('woff2'),
+       url('./assets/fonts/Anybody-ThinItalic.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
-}
-
-@font-face {
-  font-family: Anybody-Italic;
-  src: url('./assets/fonts/Anybody-Italic.ttf');
-  font-weight: normal;
-  font-style: italic;
 }
 
 
