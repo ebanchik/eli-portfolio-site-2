@@ -44,7 +44,7 @@ export function NavBar() {
             <Nav.Link href="#skills" className={activeLink === "skills" ? "active navbar-link" : "navbar-link"} onClick={() => onUpdateActiveLink('skills')}>Skills{" "}</Nav.Link>
             <Nav.Link href="#about" className={ activeLink === "about" ? "active navbar-link" : "navbar-link"} onClick={() => onUpdateActiveLink('about')}>About{" "}</Nav.Link>
             <Nav.Link href="#projects" className={ activeLink === "projects" ? "active navbar-link" : "navbar-link"} onClick={() => onUpdateActiveLink('projects')}>Projects{" "}</Nav.Link>
-            <Nav.Link href="#work-journal" className={activeLink === "work-journal" ? "active navbar-link" : "navbar-link"} onClick={() => onUpdateActiveLink('work-journal')}>Work Journal{" "}</Nav.Link>
+            {/* <Nav.Link href="#work-journal" className={activeLink === "work-journal" ? "active navbar-link" : "navbar-link"} onClick={() => onUpdateActiveLink('work-journal')}>Work Journal{" "}</Nav.Link> */}
           </Nav>
           <span className="navbar-text">
             <div className="social-icon">
