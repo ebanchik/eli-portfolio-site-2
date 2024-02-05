@@ -4,7 +4,6 @@ import linkedinMockup from "../assets/img/eli-linkedin-mockup.png"
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 
-
 export const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -22,46 +21,52 @@ export const Banner = () => {
   }, [text])
 
   const tick = () => {
-  let i = loopNum % toRotate.length;
-  let fullText = toRotate[i];
-  let updatedText = isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1);
+    let i = loopNum % toRotate.length;
+    let fullText = toRotate[i];
+    let updatedText = isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1);
 
-  setText(updatedText);
+    setText(updatedText);
 
-  if (isDeleting) {
-    setDelta(prevDelta => prevDelta /2)
+    if (isDeleting) {
+      setDelta(prevDelta => prevDelta /2)
+    }
+    if (!isDeleting && updatedText === fullText) {
+      setIsDeleting(true);
+      setDelta(period);
+    } else if(isDeleting && updatedText === '') {
+      setIsDeleting(false);
+      setLoopNum(loopNum + 1);
+      setDelta(200 - Math.random() * 50);
+    }
   }
-  if (!isDeleting && updatedText == fullText) {
-    setIsDeleting(true);
-    setDelta(period);
-  } else if(isDeleting && updatedText === '') {
-    setIsDeleting(false);
-    setLoopNum(loopNum + 1);
-    setDelta(200 - Math.random() * 50);
-  }
-}
-
 
   return (
     <section className="banner" id="home">
       <Container>
         <Row className="aligh-items-center">
-          <Col xs={12} md={6} xl={7}>
+          <Col xs={12} md={4} xl={7}>
             <TrackVisibility>
-              {({ isVisible }) =>
-              <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                <span className="tagline">Welcome to my Portfolio</span>
-                <h1>{`Hi I'm `} <span className="txt-rotate" data-period="1000" data-rotate='[ "Web Developer", "Software Engineer", "Web Designer"]'><span className="wrap">{text}</span></span></h1>
-                  <p>A bit about me in this section I will write about my self and why I should be employeed</p>
-              </div>}
+              {({ isVisible }) => (
+                <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
+                  <span className="tagline">Welcome to my Portfolio</span>
+                  <h1>{`Hi I'm `} <span className="txt-rotate" data-period="1000" data-rotate='[ "Web Developer", "Software Engineer", "Web Designer"]'><span className="wrap">{text}</span></span></h1>
+                  <p>A bit about me in this section I will write about myself and why I should be employed</p>
+                </div>
+              )}
             </TrackVisibility>
           </Col>
-          <Col xs={12} md={6} xl={5} className="d-flex justify-content-end">
+          <Col xs={12} md={8} xl={5} className="d-flex justify-content-end">
             <TrackVisibility>
-              {({ isVisible }) =>
+              {({ isVisible }) => (
                 <div className={isVisible ? "animate__animated animate__zoomIn" : ""}>
-                  <img src={linkedinMockup} alt="Header Img" style={{ marginRight:"-200px", marginTop:"-150px" }}/>
-                </div>}
+                  <img
+                    src={linkedinMockup}
+                    alt="Header Img"
+                    style={{ marginRight:"-200px", marginTop:"-150px" }}
+                    className="d-none d-md-block"  // Hide on xs and sm screens, visible on md and larger screens
+                  />
+                </div>
+              )}
             </TrackVisibility>
           </Col>
         </Row>

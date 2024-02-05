@@ -1,61 +1,81 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
-import { ProjectCard } from "./ProjectCard";
+import { useState } from "react";
+import { Container, Row, Col, Tab, Nav, Carousel } from "react-bootstrap";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
+import walkthrough from "../assets/img/split_mockups/split_walkthrough.mov";
+import splitHomeImage from "../assets/img/split_mockups/split_home.png";
+import splitLaunch from "../assets/img/split_mockups/split_launch.png";
+import splitUpper1 from "../assets/img/split_mockups/split_upper1.png";
+import splitSplits from "../assets/img/split_mockups/split-splits.png";
+import comingSoon from "../assets/img/coming_soon.png";
+
+// ... (previous imports)
 
 export const Projects = () => {
+  const [carouselIndex, setCarouselIndex] = useState(0);
 
-  const projectsForFirstTab = [
+  const handleCarouselSelect = (selectedIndex) => {
+    setCarouselIndex(selectedIndex);
+  };
+
+  const projects = [
     {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: "https://upload.wikimedia.org/wikipedia/en/8/81/Apollo_creed_promo.jpg",
+      title: "Split",
+      description: "Ruby on Rails + Swift",
+      media: [
+        { type: "video", url: walkthrough },
+        { type: "image", url: splitLaunch },
+        { type: "image", url: splitHomeImage },
+        { type: "image", url: splitUpper1 },
+        { type: "image", url: splitSplits },
+      ],
     },
     {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: "https://upload.wikimedia.org/wikipedia/en/8/81/Apollo_creed_promo.jpg",
+      title: "Armoire (in Progess)",
+      description: (
+        <>
+          Flask + React (TypeScript)
+          <br />
+          <br />
+          For my Capstone Project I would like to introduce you to Armoire, your personalized wardrobe organizer. Effortlessly log and catalog your clothing collection, creating a virtual closet at your fingertips. Seamlessly search, filter, and curate outfits like never before. Think of it as playlists for your wardrobe, where you can effortlessly mix and match your favorite items. Stay stylish, stay organized with Armoire.
+        </>
+      ),
+      media: [
+        { type: "image", url: comingSoon }
+        // Add more media items as needed
+      ],
     },
+   
     {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: "https://upload.wikimedia.org/wikipedia/en/8/81/Apollo_creed_promo.jpg",
+      title: "Other Projects",
+      description: (
+        <>
+          <li className="other-projects">
+            This Website! (React.js)
+            <br />
+            _________________________
+            <br />
+            <br />
+            Webscraper with node.js
+            <br />
+            _________________________
+            <br />
+            <br />
+            E-commerce site (Rails backend, Limited React.js fronent)
+             <br />
+             _________________________
+            <br />
+            <br />
+          </li>
+        </>
+      ),
+      media: [
+       
+        // Add more media items as needed
+      ],
     },
-  ];
-  const projectsForSecondTab = [
-    {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: "https://upload.wikimedia.org/wikipedia/en/8/81/Apollo_creed_promo.jpg",
-    },
-    {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: "https://upload.wikimedia.org/wikipedia/en/8/81/Apollo_creed_promo.jpg",
-    },
-    {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: "https://upload.wikimedia.org/wikipedia/en/8/81/Apollo_creed_promo.jpg",
-    },
-  ];
-  const projectsForThirdTab = [
-    {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: "https://upload.wikimedia.org/wikipedia/en/8/81/Apollo_creed_promo.jpg",
-    },
-    {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: "https://upload.wikimedia.org/wikipedia/en/8/81/Apollo_creed_promo.jpg",
-    },
-    {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: "https://upload.wikimedia.org/wikipedia/en/8/81/Apollo_creed_promo.jpg",
-    },
+    // Add more projects as needed
   ];
 
   return (
@@ -64,51 +84,67 @@ export const Projects = () => {
         <Row>
           <Col size={12}>
             <TrackVisibility>
-              {({ isVisible }) =>
-              <div className={isVisible ? "animate__animated animate__fadeIn": ""}>
-                <h2>Projects</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                <Tab.Container id="projects-tabs" defaultActiveKey="first">
-                  <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
-                    <Nav.Item>
-                      <Nav.Link eventKey="first">Capstone</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                      <Nav.Link eventKey="second">Split</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                      <Nav.Link eventKey="third">This</Nav.Link>
-                    </Nav.Item>
-                  </Nav>
-                  <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
-                    <Tab.Pane eventKey="first">
-                      <Row>
-                      {projectsForFirstTab.map((project, index) => (
-                          <ProjectCard key={index} {...project} />
+              {({ isVisible }) => (
+                <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
+                  <h2>Projects</h2>
+                  <p>
+                  Explore a curated collection of my recent projects, each a testament to my evolving skill set and unwavering passion for the creative process. Every endeavor represents a journey of growth and fascination, and I am eager to share these experiences with you. Should any project pique your interest, please don't hesitate to reach out – I'm always thrilled to delve deeper into the details and insights behind each creation.
+                  </p>
+                  <Tab.Container id="projects-tabs" defaultActiveKey="0">
+                      <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
+                        {projects.map((project, index) => (
+                          <Nav.Item key={index}>
+                            <Nav.Link eventKey={index.toString()}>{project.title}</Nav.Link>
+                          </Nav.Item>
                         ))}
-                      </Row>
-                    </Tab.Pane>
-                    <Tab.Pane eventKey="second">
-                      <Row>
-                      {projectsForSecondTab.map((project, index) => (
-                          <ProjectCard key={index} {...project} />
+                      </Nav>
+                      <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
+                        {projects.map((project, index) => (
+                          <Tab.Pane key={index} eventKey={index.toString()}>
+                            <Row>
+                              <Col>
+                                <div className="carousel-description">
+                                  <p>{project.description}</p>
+                                </div>
+                                <Carousel
+                                  activeIndex={carouselIndex}
+                                  onSelect={handleCarouselSelect}
+                                  interval={null} // Disable autoplay
+                                  controls
+                                  defaultActiveIndex={carouselIndex}
+                                >
+                                  {project.media.map((item, mediaIndex) => (
+                                    <Carousel.Item key={mediaIndex}>
+                                      {item.type === "video" ? (
+                                        <video controls width="100%" height="100%">
+                                          <source src={item.url} type="video/mp4" />
+                                          Your browser does not support the video tag.
+                                        </video>
+                                      ) : (
+                                        <img src={item.url} alt={`Media ${mediaIndex}`} className="d-block w-100" style={{
+                                          height: "500px",
+                                          objectFit: "contain"
+                                        }} />
+                                      )}
+                                    </Carousel.Item>
+                                  ))}
+                                </Carousel>
+                              </Col>
+                            </Row>
+                            <Row>
+                              <Col>{/* ... other content ... */}</Col>
+                            </Row>
+                          </Tab.Pane>
                         ))}
-                      </Row>
-                    </Tab.Pane>
-                    <Tab.Pane eventKey="third">
-                      <Row>
-                      {projectsForThirdTab.map((project, index) => (
-                          <ProjectCard key={index} {...project} />
-                        ))}
-                      </Row>
-                    </Tab.Pane>
-                  </Tab.Content>
-                </Tab.Container>
-              </div>}
+                      </Tab.Content>
+                    </Tab.Container>
+
+                </div>
+              )}
             </TrackVisibility>
           </Col>
         </Row>
       </Container>
     </section>
-  )
-}
+  );
+};

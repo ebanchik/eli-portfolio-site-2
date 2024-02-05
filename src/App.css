@@ -125,6 +125,15 @@ span.navbar-text {
 .social-icon a:hover img {
 	filter: brightness(0) saturate(100%) invert(0%) sepia(7%) saturate(98%) hue-rotate(346deg) brightness(95%) contrast(86%);
 }
+@media (max-width: 768px) {
+  .social-icon {
+    display: none;
+  }
+  .wvd {
+    display: none;
+  }
+}
+
 .navbar-text button {
   font-weight: 700;
   color: #fff;
@@ -346,13 +355,15 @@ p {
   position: relative;
   background-color: black;
 }
+
 .project h2 {
-	font-size: 45px;
-	font-weight: 700;
+  font-size: 45px;
+  font-weight: 700;
   text-align: center;
 }
+
 .project p {
-  color: #B8B8B8;
+  color: #fcfcfc;
   font-size: 18px;
   letter-spacing: 0.8px;
   line-height: 1.5em;
@@ -360,6 +371,7 @@ p {
   text-align: center;
   width: 56%;
 }
+
 .project .nav.nav-pills {
   width: 72%;
   margin: 0 auto;
@@ -367,9 +379,11 @@ p {
   background-color: rgb(255 255 255 / 10%);
   overflow: hidden;
 }
+
 .project .nav.nav-pills .nav-item {
   width: 33.33333%;
 }
+
 .project .nav.nav-pills .nav-link {
   background-color: transparent;
   border-radius: 0;
@@ -384,53 +398,54 @@ p {
   text-align: center;
   z-index: 0;
 }
+
 .project .nav.nav-pills .nav-link::before {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 100%;
-    background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: 0.3s ease-in-out;
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90.21deg, #aa367c -5.91%, #4a2fbd 111.58%);
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: 0.3s ease-in-out;
 }
+
 .project .nav.nav-pills .nav-link.active::before {
-    width: 100% !important;
+  width: 100% !important;
 }
-.project .nav.nav-pills .nav-link.active {
-    border: 1px solid rgba(255, 255, 255, 1);
-}
+
 .nav-link#projects-tabs-tab-first {
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 55px 0px 0px 55px;
 }
+
 .nav-link#projects-tabs-tab-second {
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
+
 .nav-link#projects-tabs-tab-third {
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 0 55px 55px 0;
 }
+
 .proj-imgbx {
   position: relative;
   border-radius: 30px;
   overflow: hidden;
   margin-bottom: 24px;
 }
-.proj-imgbx::before {
-  content: "";
-  background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
-  opacity: 0.85;
-  position: absolute;
-  width: 100%;
-  height: 0;
-  transition: 0.4s ease-in-out;
+
+.proj-imgbx img {
+  transition: transform 0.3s ease-in-out;
+  max-width: fit-content; /* Add ease-in-out for smooth scaling effect */
 }
-.proj-imgbx:hover::before {
-  height: 100%;
+
+.proj-imgbx:hover img {
+  transform: scale(0.95); /* Adjust the scale value as needed */
 }
+
 .proj-txtx {
   position: absolute;
   text-align: center;
@@ -441,22 +456,21 @@ p {
   opacity: 0;
   width: 100%;
 }
-.proj-imgbx:hover .proj-txtx {
-  top: 50%;
-  opacity: 1;
-}
+
 .proj-txtx h4 {
   font-size: 30px;
   font-weight: 700;
   letter-spacing: 0.8px;
   line-height: 1.1em;
 }
+
 .proj-txtx span {
   font-style: italic;
   font-weight: 400;
   font-size: 15px;
   letter-spacing: 0.8px;
 }
+
 .background-image-right {
   top: 20%;
   position: absolute;
@@ -465,6 +479,67 @@ p {
   right: 0;
   z-index: -4;
 }
+
+/* Add more specific selector */
+.project .carousel-indicators {
+  bottom: 50px; /* Adjust this value to move the indicators up or down */
+}
+
+.project .other-projects {
+  list-style: none;
+  padding: 0;
+  text-align: center; /* Center text */
+}
+
+.project .other-projects li {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.project .other-projects li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  bottom: -5px; /* Adjust the position as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%; /* Adjust the width as needed */
+  height: 1px; /* Adjust the height as needed */
+  background-color: #fff; /* Divider color */
+}
+
+/* Use !important to force the style */
+.carousel-indicators {
+  bottom: -50px !important; /* Adjust this value to move the indicators up or down */
+}
+
+@media (max-width: 768px) {
+  .project .nav.nav-pills {
+    width: 90%; /* Adjust the width for smaller screens */
+    margin: 0 auto;
+  }
+
+  .project .nav.nav-pills .nav-item {
+    width: 100%; /* Make each nav-item take up the full width */
+  }
+
+  .project .nav.nav-pills .nav-link {
+    padding: 15px 0; /* Adjust padding for smaller screens */
+    font-size: 15px; /* Adjust font size for smaller screens */
+  }
+
+  .project .carousel-indicators {
+    bottom: 10px; /* Adjust the position of the indicators for smaller screens */
+  }
+
+  .project .other-projects li:not(:last-child)::after {
+    width: 100%; /* Adjust the width for smaller screens */
+  }
+}
+
+
+
+
+
 
 
 
@@ -546,25 +621,30 @@ p {
 .about h1 {
   font-size: 60px;
   text-align: center;
-  padding-top: 100px;
+  padding-bottom: 25px;
+  margin-top: 0;
 }
 
 .about-container {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center vertically */
-  align-items: center; /* Center horizontally */
-  height: 100vh; 
-  padding-bottom: 100px;
-  padding: 0 25px 0 25px;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0 auto;
+  max-width: 80%;
+  padding: 0 25px 150px 25px;
+  border-radius: 20px;
+  color: #e9e9e9;
+  text-align: center;
 }
 
 .about-body {
   display: block;
-  background-color: #201f1f;
-  padding: 20px;
+  background: linear-gradient(#0408e0, #4A2FBD, #B8B8B8);
+  padding: 30px;
   margin: 0 auto;
-  max-width: 800px;
+  max-width: 80%;
   border-radius: 20px;
   color: #e9e9e9;
   text-align: center;
@@ -573,9 +653,83 @@ p {
 .about {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center vertically */
-  align-items: center; /* Center horizontally */
-  height: 100vh; /* Full viewport height or adjust as needed */
+  justify-content: center;
+  align-items: center;
+  min-height: 120vh; /* Adjust the height value as needed */
   background-image: url("./assets/img/19.jpg");
+  overflow: auto;
 }
 
+@media (max-width: 768px) {
+  .about-container {
+    padding: 0 15px 50px 15px; /* Adjust padding for smaller screens */
+    max-width: 100%; /* Make it full-width on smaller screens */
+  }
+}
+
+
+
+
+
+
+
+
+.footer {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #121212;
+  height: 75px;
+  flex-direction: column; /* Add this line for vertical centering */
+}
+
+.foot-text {
+  padding: 10px; /* Adjust padding as needed */
+}
+
+.social-icon-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Add this line for horizontal centering */
+  background-color: #121212;
+  padding-bottom: 40px;
+}
+
+.social-icon-footer a {
+  width: 42px;
+  height: 42px;
+  background: rgba(217, 217, 217, 0.1);
+  display: inline-flex;
+  border-radius: 50%;
+  margin-right: 6px;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.social-icon-footer a::before {
+  content: "";
+  width: 42px;
+  height: 42px;
+  position: absolute;
+  background-color: #ffffff;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 0.3s ease-in-out;
+}
+
+.social-icon-footer a:hover::before {
+  transform: scale(1);
+}
+
+.social-icon-footer a img {
+  width: 100%;
+  z-index: 1;
+  transition: 0.3s ease-in-out;
+}
+
+.social-icon-footer a:hover img {
+  filter: brightness(0) saturate(100%) invert(0%) sepia(7%) saturate(98%) hue-rotate(346deg) brightness(95%) contrast(86%);
+}
