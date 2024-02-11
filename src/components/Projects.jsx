@@ -8,7 +8,7 @@ import splitHomeImage from "../assets/img/split_mockups/split_home.png";
 import splitLaunch from "../assets/img/split_mockups/split_launch.png";
 import splitUpper1 from "../assets/img/split_mockups/split_upper1.png";
 import splitSplits from "../assets/img/split_mockups/split-splits.png";
-import comingSoon from "../assets/img/coming_soon.png";
+import armoirePreview from "../assets/img/armoire_preview.png";
 
 // ... (previous imports)
 
@@ -42,7 +42,7 @@ export const Projects = () => {
         </>
       ),
       media: [
-        { type: "image", url: comingSoon }
+        { type: "image", url: armoirePreview }
         // Add more media items as needed
       ],
     },
