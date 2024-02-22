@@ -259,7 +259,7 @@ p {
   font-size: 25px;
 }
 .banner img {
-  animation: updown 3s linear infinite;
+  animation: updown 3s ease-in-out 3 forwards;
   width: 800px; 
   height: 500px;
 }
