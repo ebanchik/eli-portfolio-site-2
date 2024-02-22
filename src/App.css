@@ -641,10 +641,10 @@ p {
 
 .about-body {
   display: block;
-  background: linear-gradient(#0408e0, #4A2FBD, #B8B8B8);
+  /* background: linear-gradient(#0e0e0e); */
   padding: 30px;
   margin: 0 auto;
-  max-width: 80%;
+  max-width: 90%;
   border-radius: 20px;
   color: #e9e9e9;
   text-align: center;
