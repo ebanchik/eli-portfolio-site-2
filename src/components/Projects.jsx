@@ -8,7 +8,7 @@ import splitHomeImage from "../assets/img/split_mockups/split_home.png";
 import splitLaunch from "../assets/img/split_mockups/split_launch.png";
 import splitUpper1 from "../assets/img/split_mockups/split_upper1.png";
 import splitSplits from "../assets/img/split_mockups/split-splits.png";
-import armoireWalkthrough from "../assets/armoire_walkthrough.mov";
+import armoireWalkthrough from "../assets/img/armoire_walkthrough.mov";
 
 // ... (previous imports)
 
