@@ -116,7 +116,7 @@ export const Projects = () => {
                                   {project.media.map((item, mediaIndex) => (
                                     <Carousel.Item key={mediaIndex}>
                                       {item.type === "video" ? (
-                                        <video controls width="100%" height="100%">
+                                        <video controls width="100%" height="100%" muted>
                                           <source src={item.url} type="video/mp4" />
                                           Your browser does not support the video tag.
                                         </video>
